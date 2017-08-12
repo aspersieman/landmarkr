@@ -3466,5 +3466,34 @@
             "testing",
             "xunit"
         ]
+    },
+    {
+        "name": "hownowstephen/php-foursquare",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hownowstephen/php-foursquare.git",
+            "reference": "f2f6d3656556bf3575f8beca5dd44109c999b5a0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hownowstephen/php-foursquare/zipball/f2f6d3656556bf3575f8beca5dd44109c999b5a0",
+            "reference": "f2f6d3656556bf3575f8beca5dd44109c999b5a0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "time": "2015-06-08T14:19:23+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "FoursquareApi": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "description": "A simple PHP library for accessing the foursquare API (see: https://developer.foursquare.com)"
     }
 ]

@@ -262,6 +262,13 @@ class ComposerStaticInitd25c4473be70a6a3054bc01eaf4a873b
                 0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
             ),
         ),
+        'F' => 
+        array (
+            'FoursquareApi' => 
+            array (
+                0 => __DIR__ . '/..' . '/hownowstephen/php-foursquare/src',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\Common\\Inflector\\' => 
@@ -741,6 +748,8 @@ class ComposerStaticInitd25c4473be70a6a3054bc01eaf4a873b
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'FoursquareApi' => __DIR__ . '/..' . '/hownowstephen/php-foursquare/src/FoursquareApi.php',
+        'FoursquareApiException' => __DIR__ . '/..' . '/hownowstephen/php-foursquare/src/FoursquareApi.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
