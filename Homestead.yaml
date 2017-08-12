@@ -14,8 +14,11 @@ folders:
       to: /home/vagrant/app
 
 sites:
+    - map: api.landmarkr.app
+      to: /home/vagrant/app/api/public
+      type: laravel
     - map: landmarkr.app
-      to: /home/vagrant/app/public
+      to: /home/vagrant/app/ui/src
       type: laravel
     - map: phpmyadmin.app
       to: /home/vagrant/phpMyAdmin
