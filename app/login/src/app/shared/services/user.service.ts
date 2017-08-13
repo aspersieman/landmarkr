@@ -77,9 +77,9 @@ export class UserService extends BaseService {
 			.map(res => res.json())
 			.catch(this.handleError)
 			.subscribe();
-		//localStorage.removeItem('auth_token');
-		//this.loggedIn = false;
-		//this._authNavStatusSource.next(false);
+		localStorage.removeItem('auth_token');
+		this.loggedIn = false;
+		this._authNavStatusSource.next(false);
 	}
 
 	isLoggedIn() {
