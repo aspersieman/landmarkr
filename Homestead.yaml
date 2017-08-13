@@ -19,7 +19,8 @@ sites:
       type: laravel
     - map: landmarkr.app
       to: /home/vagrant/app/ui/dist/
-      type: laravel
+    - map: login.landmarkr.app
+      to: /home/vagrant/app/login/dist/
     - map: phpmyadmin.app
       to: /home/vagrant/phpMyAdmin
 
