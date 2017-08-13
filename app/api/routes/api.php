@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
+// CORS
+header('Access-Control-Allow-Origin: http://login.landmarkr.app');
+header('Access-Control-Allow-Credentials: true');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

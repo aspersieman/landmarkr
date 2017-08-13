@@ -9,3 +9,6 @@ cache/
 .vagrant/
 /vendor
 phpunit.xml
+app/login/dist/
+app/ui/dist/
+node_modules/
