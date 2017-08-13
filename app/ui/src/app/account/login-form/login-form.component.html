@@ -1,0 +1,31 @@
+<div class="login-form">
+	<md-card>
+		<div *ngIf="brandNew" class="alert alert-success" role="alert">
+			<strong>All set!</strong> Please login with your account
+		</div>
+		<h4>Login</h4>
+			<form #f="ngForm" novalidate (ngSubmit)="login(f)">
+				<md-input-container>
+					<input id="email" type="text" required name="email" mdInput [ngModel]="credentials.email" #email="ngModel" tmFocus validateEmail class="form-control" placeholder="Email">
+				</md-input-container>
+				<br/>
+				<small [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">
+					Email incorrect
+				</small>
+				<br/>
+				<md-input-container>
+					<input id="password" type="password" required name="password" class="form-control"	placeholder="Password" mdInput ngModel>
+				<br/>
+				</md-input-container>
+				<br/>
+				<button type="submit" md-raised-button [disabled]="f.invalid || isRequesting">Login</button>
+				<div *ngIf="errors" class="alert alert-danger" role="alert">
+					<strong>Oops!</strong> {{errors}}
+				</div>
+			</form>
+	</md-card>
+
+	<div *ngIf="isRequesting">
+		<md-progress-bar mode="indeterminate"></md-progress-bar>
+	</div>
+</div>
