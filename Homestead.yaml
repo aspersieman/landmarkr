@@ -18,7 +18,7 @@ sites:
       to: /home/vagrant/app/api/public
       type: laravel
     - map: landmarkr.app
-      to: /home/vagrant/app/ui/src
+      to: /home/vagrant/app/ui/dist/
       type: laravel
     - map: phpmyadmin.app
       to: /home/vagrant/phpMyAdmin
