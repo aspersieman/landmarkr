@@ -1,0 +1,31 @@
+<div class="registration-form">
+	<md-card>
+		<h4>Create your account</h4>
+		<form #f="ngForm" novalidate (ngSubmit)="registerUser(f)">
+			<md-input-container>
+				<input id="name" type="text" required name="name" class="form-field" placeholder="Name" mdInput  tmFocus ngModel>
+			</md-input-container>
+			<br/>
+			<md-input-container>
+				<input id="email" type="text" required name="email" class="form-field" validateEmail placeholder="Email" mdInput ngModel  #email="ngModel">
+			</md-input-container>
+			<br/>
+			<md-input-container>
+				<input id="password" type="password" required name="password" class="form-field" placeholder="Password" mdInput ngModel>
+			</md-input-container>
+			<br/>
+			<md-input-container>
+				<input id="password_confirmation" type="password" required name="password_confirmation" class="form-field" placeholder="Password confirmation" mdInput ngModel>
+			</md-input-container>
+			<br/>
+			<button type="submit" md-raised-button [disabled]="f.invalid || isRequesting">Sign Up</button>
+			<br/>
+			<div *ngIf="errors" class="alert alert-danger" role="alert">
+				<strong>Oops!</strong> {{errors}}
+			</div>
+		</form>
+	</md-card>
+	<div *ngIf="isRequesting">
+		<md-progress-bar mode="indeterminate"></md-progress-bar>
+	</div>
+</div>

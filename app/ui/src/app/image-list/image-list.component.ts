@@ -1,38 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageService } from '../shared/image.service';
+import { ActivatedRoute } from "@angular/router";
+import { ImageService } from '../dashboard/services/image.service';
 
 @Component({
-  selector: 'app-image-list',
-  templateUrl: './image-list.component.html',
-  styleUrls: ['./image-list.component.css']
+	selector: 'app-image-list',
+	templateUrl: './image-list.component.html',
+	styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
-  images: any[];
-  imagesFound: boolean = false;
-  searching: boolean = false;
+	images: any[];
+	imagesCount: any;
+	imagesFound: boolean = false;
+	searching: boolean = false;
 
-  handleSuccess(data){
-    this.imagesFound = true;
-    this.images = data.hits;
-    console.log(data.hits);
-  }
+	handleSuccess(data){
+		this.imagesFound = true;
+		this.images = data;
+		this.imagesCount = Object.keys(data).length;
+		console.log(data);
+	}
 
-  handleError(error){
-    console.log(error);
-  }
+	handleError(error){
+		console.log(error);
+	}
 
-  constructor(private _imageService : ImageService) { }
+	constructor(private _imageService : ImageService, private route: ActivatedRoute) {
+		this.route.params.subscribe( params => this.searchImages(params['name']));
+	}
 
-  searchImages(query: string){
-    this.searching = true;
-    return this._imageService.getImage(query).subscribe(
-      data => this.handleSuccess(data),
-      error => this.handleError(error),
-      () => this.searching = false
-    )
-  }
+	searchImages(query: string){
+		this.searching = true;
+		return this._imageService.getImage(query).subscribe(
+			data => this.handleSuccess(data),
+			error => this.handleError(error),
+			() => this.searching = false
+		)
+	}
 
-  ngOnInit() {
-  }
+	getTags(tags: string) {
+		return tags.split(" ").slice(0, 4);
+	}
+
+	ngOnInit() {
+	}
 
 }

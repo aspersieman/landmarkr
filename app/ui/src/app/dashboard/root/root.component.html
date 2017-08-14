@@ -1,0 +1,12 @@
+<div class="row">
+	<md-toolbar color="primary">
+		<span><a class="menu-button" routerLinkActive="active-sidebar-link" routerLink='/dashboard/home'>Home</a></span>
+
+		<span class="spacer">&nbsp;</span>
+
+		<span><a class="menu-button" routerLinkActive="active-sidebar-link" href="#" (click)="logout()">Logout</a></span>
+	</md-toolbar>
+	<div>
+		<router-outlet></router-outlet>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="main">
+	<md-card>
+		<md-input-container>
+			<input class="search" mdInput [(ngModel)]="searchQuery"
+		  name="search" placeholder="Search for landmarks">
+		</md-input-container>
+		<br>
+		<button (click)="searchLocations(searchQuery)"
+				  md-raised-button class="searchButton" type="button">Find Landmarks</button>
+	</md-card>
+</div>
+
+<div *ngIf="searching">
+	<md-progress-bar mode="indeterminate"></md-progress-bar>
+</div>
+
+<md-card *ngIf="locationsFound">
+	<h4 *ngIf="locationsFound" md-subeader>Results</h4>
+	<p *ngIf="locationsCount == 0"><br/>No landmarks found</p>
+	<masonry [useImagesLoaded]="true">
+	<masonry-brick *ngFor="let location of locations" class=location-container>
+		<md-card>
+			<strong>
+				<a routerLink='{{ getLocationUrl(location.name) }}'>
+					{{ location.name }}
+				</a>
+			</strong>
+		</md-card>
+		<br><br>
+	</masonry-brick>
+	</masonry>
+</md-card>

@@ -64,22 +64,20 @@ export class UserService extends BaseService {
 	}
 
 	logout() {
-		console.log("LOGOUT");
-		console.log(localStorage.getItem("auth_token"));
 		let headers = new Headers();
 		headers.append('Accept', 'application/json');
 		headers.append('Content-Type', 'application/json');
 		headers.append('Authorization', 'Bearer '+localStorage.getItem('auth_token'));
-		console.log(headers);
 		let options = new RequestOptions({ headers: headers });
 
 		this.http.post(this.baseUrl + "/logout", {}, options)
-			.map(res => res.json())
+			.map(res => {
+				localStorage.removeItem('auth_token');
+				this.loggedIn = false;
+				this._authNavStatusSource.next(false);
+			})
 			.catch(this.handleError)
 			.subscribe();
-		localStorage.removeItem('auth_token');
-		this.loggedIn = false;
-		this._authNavStatusSource.next(false);
 	}
 
 	isLoggedIn() {

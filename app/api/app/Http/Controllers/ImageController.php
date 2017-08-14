@@ -29,22 +29,27 @@ class ImageController extends Controller
 		{
 			$response = $this->flickerApi(
 				array('text' => urlencode($location),
+				'media' => 'photos',
+				'content_type' => 1,
+				'safe_search' => 1,
 				'extras' => 'date_upload, date_taken, owner_name, last_update, geo, tags, media, url_l'),
 				'flickr.photos.search');
 			$response = json_decode($response,true);
 			if (isset($response['photos']['photo'])) {
 				foreach ($response['photos']['photo'] as $photo) {
-					$image = new Image;
-					$image->fl_id = $photo['id'];
-					$image->owner = $photo['owner'];
-					$image->ownername = $photo['ownername'];
-					$image->title = $photo['title'];
-					$image->dateupload = date("Y-m-d", $photo['dateupload']);
-					$image->datetaken = $photo['datetaken'];
-					$image->url = $photo['url_l'];
-					$image->tags = $photo['tags'];
-					$image->search_term = $location;
-					$image->save();
+					if (isset($photo['url_l'])) {
+						$image = new Image;
+						$image->fl_id = $photo['id'];
+						$image->owner = $photo['owner'];
+						$image->ownername = $photo['ownername'];
+						$image->title = $photo['title'];
+						$image->dateupload = date("Y-m-d", $photo['dateupload']);
+						$image->datetaken = $photo['datetaken'];
+						$image->url = $photo['url_l'];
+						$image->tags = $photo['tags'];
+						$image->search_term = $location;
+						$image->save();
+					}
 				}
 			}
 			$images = Image::where('search_term', '=', $location)->get();
@@ -73,7 +78,7 @@ class ImageController extends Controller
 		return response()->json(null, 204);
 	}
 
-	public function flickerApi(array $args, $method, $per_page = 10)
+	public function flickerApi(array $args, $method, $per_page = 20)
 	{
 		$args = array_merge($args, array(
 			'api_key' => $_ENV['FLICKR_CLIENT_ID'],
