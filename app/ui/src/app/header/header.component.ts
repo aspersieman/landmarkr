@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 
 import { UserService } from '../shared/services/user.service';
@@ -8,7 +8,7 @@ import { UserService } from '../shared/services/user.service';
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit,OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
 
 	status: boolean;
 	subscription:Subscription;

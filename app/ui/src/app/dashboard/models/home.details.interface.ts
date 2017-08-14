@@ -1,3 +1,3 @@
 export interface HomeDetails {
-    message: string;      
+	message: string;
 }

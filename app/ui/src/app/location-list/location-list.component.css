@@ -1,0 +1,38 @@
+#search-container{
+	margin-top:20%;
+}
+
+.search{
+	height: 70px;
+	max-height: 70px;
+	font-size: 3.5em;
+	color: #;
+}
+
+.searchButton{
+	background-color: grey;
+	color: #fff;
+	margin-top:20px;
+}
+
+.location-container{
+	width: 300px;
+	min-height: 100px;
+	max-width: 300px;
+	margin: 8px;
+	border-radius: 2px;
+	overflow: hidden;
+	border: 1px;
+}
+
+.results{
+	padding: 8px;
+	margin-bottom: 12px;
+}
+
+.main .mat-card {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+

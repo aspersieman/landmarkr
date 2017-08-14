@@ -1,14 +1,12 @@
 <div class="row">
+	<md-toolbar color="primary">
+		<span><a class="menu-button" routerLinkActive="active-sidebar-link" routerLink='/dashboard/home'>Home</a></span>
 
-  <div class="col-md-2" role="navigation" style="border-right:1px solid #cecece">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="nav-item">
-        <a class="nav-link sidebar-menu-button" routerLinkActive="active-sidebar-link" routerLink='/dashboard/home'><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-      </li>           
-    </ul>
-  </div>
+		<span class="spacer">&nbsp;</span>
 
-  <div class="col-md-10">
-    <router-outlet></router-outlet>
-  </div>
+		<span><a class="menu-button" routerLinkActive="active-sidebar-link" href="#" (click)="logout()">Logout</a></span>
+	</md-toolbar>
+	<div>
+		<router-outlet></router-outlet>
+	</div>
 </div>
