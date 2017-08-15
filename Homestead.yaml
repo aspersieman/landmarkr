@@ -6,9 +6,6 @@ provider: virtualbox
 
 authorize: ~/.ssh/id_rsa.pub
 
-keys:
-    - ~/.ssh/id_rsa
-
 folders:
     - map: ./app
       to: /home/vagrant/app
@@ -19,8 +16,6 @@ sites:
       type: laravel
     - map: landmarkr.app
       to: /home/vagrant/app/ui/dist/
-    - map: login.landmarkr.app
-      to: /home/vagrant/app/login/dist/
     - map: phpmyadmin.app
       to: /home/vagrant/phpMyAdmin
 
