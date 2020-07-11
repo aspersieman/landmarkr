@@ -19,6 +19,7 @@ class Cors
      */
     public function handle($request, Closure $next)
     {
+      /*
         if ($request->isMethod('options')) {
             return response('', 200)
               ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
@@ -26,5 +27,10 @@ class Cors
                 x-xsrf-token, x-csrf-token, Authorization'); // Add any required headers here
         }
         return $next($request);
+       */
+      return $next($request)
+        ->header('Access-Control-Allow-Origin', '*')
+        ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+        ->header('Access-Control-Allow-Headers', 'Content-Type, Authorizations');
     }
 }

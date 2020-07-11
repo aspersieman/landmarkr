@@ -1620,7 +1620,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ConfigService = (function () {
     function ConfigService() {
-        this._apiURI = 'http://api.landmarkr.app/api';
+        this._apiURI = 'http://api.landmarkr.localhost/api';
     }
     ConfigService.prototype.getApiURI = function () {
         return this._apiURI;
